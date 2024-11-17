@@ -1,0 +1,280 @@
+/* Reset Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 28px;
+    font-variant: small-caps;
+    margin: 30px 0;
+    color: #444;
+    font-weight: 700;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 80px; /* Adjusted for fixed navbar */
+}
+
+/* Complaints List */
+.complaints-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Complaint Card Styles */
+.complaint {
+    background-color: white;
+    padding: 35px; /* Increased padding */
+    padding-bottom: 80px; /* Increased padding-bottom */
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 350px; /* Increased width */
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Ensure the like-section is positioned relative to this */
+}
+
+.complaint:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.complaint h2 {
+    margin-bottom: 10px;
+    font-size: 24px; /* Increased font size */
+    color: #1E90FF;
+    font-variant: small-caps;
+    font-weight: 700;
+}
+
+.complaint p {
+    margin-bottom: 5px;
+    color: #666;
+    line-height: 1.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Limits the number of lines */
+    transition: max-height 0.3s ease;
+}
+
+.complaint.expanded p {
+    -webkit-line-clamp: initial; /* Show full text when expanded */
+}
+
+/* Read More Button */
+.read-more-btn {
+    background-color: #1E90FF;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px; /* Increased padding */
+    cursor: pointer;
+    font-size: 16px; /* Increased font size */
+    transition: background-color 0.3s ease;
+    position: absolute; /* Change to absolute positioning */
+    bottom: 20px; /* Move it down from the bottom */
+    left: 30px; /* Adjust horizontal position if needed */
+}
+
+/* Like Section */
+.like-section {
+    position: absolute; /* Position absolutely within the .complaint card */
+    bottom: 20px; /* Adjust to position from the bottom */
+    right: 10px; /* Adjust to position from the right */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Like Button */
+.like-btn {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 8px; /* Increased padding */
+    font-size: 18px; /* Increased font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 36px; /* Increased width */
+    height: 36px; /* Increased height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.like-btn:hover {
+    background-color: #FF4500;
+}
+
+.like-count {
+    font-size: 18px; /* Increased font size */
+    color: #333;
+}
+  
+/* Filter Section */
+.filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 60px; /* Increased margin to ensure clear space below the navbar */
+    background-color: #f5f5f5; /* Optional: helps to visualize the filter section */
+}
+
+.filter select {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Gap between buttons */
+    justify-content: flex-start; /* Align items to the start */
+    margin-right: 40px;
+}
+
+.button-container .submit-btn {
+    padding: 12px 25px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    color: black;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-container .submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.button-container .submit-btn:hover::before {
+    transform: scaleX(1);
+}
+
+.button-container .submit-btn:hover {
+    color: white;
+    background-color: #FF4500;
+    transform: scale(1.05);
+}
+
+/* Trash Button */
+.delete-btn {
+    background-color: #e74c3c; /* Red background color */
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Make it a circle */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Center icon inside button */
+    align-items: center; /* Vertically center the icon */
+    justify-content: center; /* Horizontally center the icon */
+    padding: 8px; /* Space around the icon */
+    position: absolute; /* Position it absolutely within the card */
+    top: -130px; /* Position it 10px from the top */
+    right: 30px; /* Position it 10px from the right */
+    width: 36px; /* Width of the button */
+    height: 36px; /* Height of the button */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.delete-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+.delete-btn:active {
+    background-color: #a93226; /* Even darker red on click */
+}
+
+.delete-btn .fa-trash {
+    font-size: 20px; /* Adjust icon size */
+}
+
+/* Animations */
+@keyframes gradient {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Fade-In Effect */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
+/* Scroll Animation */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 60px; /* Adjust for smaller screens */
+    }
+
+    .filter {
+        margin-top: 15px; /* Adjust gap for smaller screens */
+    }
+}

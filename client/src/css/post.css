@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #1E90FF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixed position for the navbar */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #0056b3;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+    font-variant: small-caps;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #ffcc00;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-link:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 70px; /* Adjusted for the fixed navbar */
+}
+
+h1 {
+    font-size: 28px;
+    font-variant: small-caps;
+    margin-bottom: 30px;
+    color: #444;
+    font-weight: 700;
+}
+
+.submit-btn {
+    padding: 12px 25px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    color: black;
+    text-decoration: none;
+}
+
+.submit-btn:hover {
+    background-color: #FF4500;
+    color: white;
+}
+
+.post-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    position: relative;
+    z-index: 1; /* Ensures it's above any other content */
+}
+
+.post-container h3 {
+    color: #1a73e8;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.post-container p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.post-container a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #1E90FF;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.post-container a:hover {
+    color: #1E90FF;
+    background-color: white;
+    border: 1px solid #1E90FF;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 24px;
+    }
+
+    .navbar-link {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .post-container {
+        width: 90%;
+        padding: 15px; 
+    }
+
+    .submit-btn {
+        font-size: 14px; /* Adjust button font size */
+        padding: 10px 20px; /* Adjust button padding */
+    }
+}
